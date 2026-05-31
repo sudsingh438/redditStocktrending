@@ -60,9 +60,11 @@ def generate_index():
     if run:
         predictions = get_predictions_for_run(run["id"])
         subreddits = json.loads(run["subreddits_scanned"])
+        yahoo_data = json.loads(run.get("yahoo_data", "{}"))
     else:
         predictions = []
         subreddits = []
+        yahoo_data = {}
 
     report_files = sorted(REPORTS_DIR.glob("*.md"), reverse=True) if REPORTS_DIR.exists() else []
 
@@ -119,6 +121,37 @@ def generate_index():
         html += "</div>"
     else:
         html += '<div class="card"><div class="empty">No predictions yet. Run the scanner first.</div></div>'
+
+    # Yahoo Finance Trending
+    trending = yahoo_data.get("trending", [])
+    if trending and predictions:
+        reddit_tickers = {p["ticker"] for p in predictions}
+        html += """<div class="card">
+<h2>Yahoo Finance Trending</h2>
+"""
+        for t in trending[:10]:
+            is_reddit = t in reddit_tickers
+            prefix = "🔄 " if is_reddit else ""
+            color = "#3fb950" if is_reddit else "#8b949e"
+            html += f'<div class="history-row"><span style="color:{color}">{prefix}${t}</span></div>'
+        html += '<div style="font-size:0.65rem;color:#484f58;margin-top:6px;">🔄 = also discussed on Reddit</div></div>'
+
+    # Yahoo Market Movers
+    gainers = yahoo_data.get("gainers", [])
+    losers = yahoo_data.get("losers", [])
+    if gainers or losers:
+        html += """<div class="card">
+<h2>Market Movers</h2>
+"""
+        if gainers:
+            html += '<div style="font-size:0.8rem;color:#3fb950;margin-bottom:4px;">📈 Top Gainers</div>'
+            for g in gainers[:5]:
+                html += f'<div class="history-row"><span>${g["symbol"]}</span><span style="color:#3fb950">+{g["change_pct"]}%</span></div>'
+        if losers:
+            html += '<div style="font-size:0.8rem;color:#f85149;margin-top:8px;margin-bottom:4px;">📉 Top Losers</div>'
+            for l in losers[:5]:
+                html += f'<div class="history-row"><span>${l["symbol"]}</span><span style="color:#f85149">{l["change_pct"]}%</span></div>'
+        html += "</div>"
 
     html += f"""<div class="card">
 <h2>Accuracy Stats</h2>

@@ -20,7 +20,8 @@ def init_db():
             posts_analyzed INTEGER,
             tickers_found INTEGER,
             subreddits_scanned TEXT,
-            top_tickers TEXT
+            top_tickers TEXT,
+            yahoo_data TEXT
         )
     """)
     conn.execute("""
@@ -62,18 +63,22 @@ def init_db():
     columns = [c[1] for c in conn.execute("PRAGMA table_info(predictions)").fetchall()]
     if "top_posts" not in columns:
         conn.execute("ALTER TABLE predictions ADD COLUMN top_posts TEXT")
-        conn.commit()
+
+    # Migration: add yahoo_data column to runs
+    run_columns = [c[1] for c in conn.execute("PRAGMA table_info(runs)").fetchall()]
+    if "yahoo_data" not in run_columns:
+        conn.execute("ALTER TABLE runs ADD COLUMN yahoo_data TEXT")
 
     conn.commit()
     conn.close()
 
 
-def save_run(posts_analyzed, tickers_found, subreddits_scanned, top_tickers):
+def save_run(posts_analyzed, tickers_found, subreddits_scanned, top_tickers, yahoo_data=None):
     conn = get_db()
     now = datetime.now(timezone.utc).isoformat()
     cursor = conn.execute(
-        "INSERT INTO runs (timestamp, posts_analyzed, tickers_found, subreddits_scanned, top_tickers) VALUES (?, ?, ?, ?, ?)",
-        (now, posts_analyzed, tickers_found, json.dumps(subreddits_scanned), json.dumps(top_tickers))
+        "INSERT INTO runs (timestamp, posts_analyzed, tickers_found, subreddits_scanned, top_tickers, yahoo_data) VALUES (?, ?, ?, ?, ?, ?)",
+        (now, posts_analyzed, tickers_found, json.dumps(subreddits_scanned), json.dumps(top_tickers), json.dumps(yahoo_data or {}))
     )
     run_id = cursor.lastrowid
     conn.commit()
