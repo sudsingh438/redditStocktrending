@@ -96,10 +96,12 @@ def generate_index():
             s = p["sentiment"]
             mentions = p.get("mentions", 0)
             reason = (p.get("reason") or "")[:120]
+            ticker = p["ticker"]
+            yahoo_badge = " 📈" if ticker in yahoo_data.get("trending", []) else ""
             html += f"""<div class="stock-row">
 <div class="stock-rank">#{i}</div>
 <div class="stock-info">
-<div class="stock-ticker">${p['ticker']}</div>
+<div class="stock-ticker">${ticker}{yahoo_badge}</div>
 <div class="stock-reason">{reason}</div>
 <div class="stock-meta">{mentions} mentions"""
             top_posts_str = p.get("top_posts", "")
@@ -126,15 +128,17 @@ def generate_index():
     trending = yahoo_data.get("trending", [])
     if trending and predictions:
         reddit_tickers = {p["ticker"] for p in predictions}
-        html += """<div class="card">
+        overlap = [t for t in trending if t in reddit_tickers]
+        html += f"""<div class="card">
 <h2>Yahoo Finance Trending</h2>
+<div style="font-size:0.72rem;color:#8b949e;margin-bottom:6px;">{len(overlap)} of {len(trending)} trending on Reddit too</div>
 """
         for t in trending[:10]:
             is_reddit = t in reddit_tickers
             prefix = "🔄 " if is_reddit else ""
             color = "#3fb950" if is_reddit else "#8b949e"
             html += f'<div class="history-row"><span style="color:{color}">{prefix}${t}</span></div>'
-        html += '<div style="font-size:0.65rem;color:#484f58;margin-top:6px;">🔄 = also discussed on Reddit</div></div>'
+        html += "</div>"
 
     # Yahoo Market Movers
     gainers = yahoo_data.get("gainers", [])
