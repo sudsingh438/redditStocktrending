@@ -113,7 +113,7 @@ def generate_index():
                             html += f'<br>📎 <a href="{url}" target="_blank" style="color:#484f58;font-size:0.72rem;">{title}</a>'
                 except Exception:
                     pass
-            html += """</div>
+            html += f"""</div>
 </div>
 <span class="badge {badge_class(s)}">{s}</span>
 <span class="confidence">{p['confidence']:.0f}%</span>
