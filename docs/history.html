@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Reddit Stock Trends</title>
+<title>History — Reddit Stock Trends</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #c9d1d9; padding: 16px; max-width: 600px; margin: 0 auto; }
@@ -45,27 +45,20 @@ td { padding: 6px; border-bottom: 1px solid #21262d15; }
 </head>
 <body>
 <div class="header">
-<h1>Reddit Stock Trends</h1>
-<p class="subtitle">Last run: 2026-05-31T21:44 | </p>
+<h1>Prediction History</h1>
+<p class="subtitle">0/0 correct (0% hit rate)</p>
 </div>
 
 <div class="nav">
 <a href="index.html">Dashboard</a>
 <a href="history.html">Full History</a>
 </div>
-<div class="card"><div class="empty">No predictions yet. Run the scanner first.</div></div><div class="card">
-<h2>Accuracy Stats</h2>
-<div class="stats-grid">
-<div class="stat-box"><div class="stat-value">0%</div><div class="stat-label">All-time hit rate</div></div>
-<div class="stat-box"><div class="stat-value">0%</div><div class="stat-label">7-day hit rate</div></div>
-<div class="stat-box"><div class="stat-value">0/0</div><div class="stat-label">Correct / Total</div></div>
-<div class="stat-box"><div class="stat-value" style="color:#f85149">+0.0%</div><div class="stat-label">Avg BUY return</div></div>
+
+<div class="card">
+<table>
+<tr><th>Ticker</th><th>Signal</th><th>Conf</th><th>Date</th><th>Mentions</th></tr>
+<tr><td colspan="5" class="empty">No predictions yet</td></tr></table>
 </div>
-</div><div class="card">
-<h2>Daily Reports</h2>
-<div class="history-row"><a href="../reports/2026-05-31.md" target="_blank">📄 2026-05-31</a></div></div><div class="footer">
-<p class="refresh-time">Updated: 2026-05-31 21:44 UTC</p>
-<p>Repo: <a href="https://github.com/sudsingh438/redditStocktrending" style="color:#484f58">redditStocktrending</a></p>
-</div>
+<div class="footer"><p class="refresh-time">Updated: 2026-05-31 21:44 UTC</p></div>
 </body>
 </html>
