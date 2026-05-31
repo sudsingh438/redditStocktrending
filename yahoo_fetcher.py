@@ -22,8 +22,18 @@ def get_trending_tickers():
         tickers = []
         for q in quotes:
             symbol = q.get("symbol", "")
-            if symbol and not symbol.endswith("-USD"):
-                tickers.append(symbol)
+            if not symbol:
+                continue
+            if "=F" in symbol or "^" in symbol or "=X" in symbol:
+                continue
+            skip = False
+            for suffix in ("-USD", "-CAD", "-EUR", "-GBP", "-JPY", "-AUD", "-CNY", "-KRW", "-INR"):
+                if symbol.endswith(suffix):
+                    skip = True
+                    break
+            if skip:
+                continue
+            tickers.append(symbol)
         return tickers[:20]
     except Exception as e:
         print(f"  [WARN] Yahoo trending error: {e}")
