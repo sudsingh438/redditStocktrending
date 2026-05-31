@@ -34,6 +34,7 @@ def init_db():
             sentiment TEXT,
             confidence REAL,
             reason TEXT,
+            top_posts TEXT,
             price_at_time REAL,
             price_date TEXT,
             created_at TEXT NOT NULL,
@@ -77,11 +78,12 @@ def save_predictions(run_id, predictions):
     conn = get_db()
     now = datetime.now(timezone.utc).isoformat()
     for p in predictions:
+        top_posts_json = json.dumps(p.get("top_posts", [])[:3])
         conn.execute(
-            "INSERT INTO predictions (run_id, ticker, company_name, mentions, engagement_score, sentiment, confidence, reason, price_at_time, price_date, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            "INSERT INTO predictions (run_id, ticker, company_name, mentions, engagement_score, sentiment, confidence, reason, top_posts, price_at_time, price_date, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
             (run_id, p.get("ticker"), p.get("company_name"), p.get("mentions"),
              p.get("engagement_score"), p.get("sentiment"), p.get("confidence"),
-             p.get("reason"), p.get("price_at_time"), p.get("price_date"), now)
+             p.get("reason"), top_posts_json, p.get("price_at_time"), p.get("price_date"), now)
         )
     conn.commit()
     conn.close()

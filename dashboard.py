@@ -1,4 +1,5 @@
 import json
+import json
 from datetime import datetime, timezone
 from config import DOCS_DIR, REPORTS_DIR
 from db import get_latest_run, get_predictions_for_run, get_accuracy_stats, get_all_predictions
@@ -91,12 +92,26 @@ def generate_index():
 """
         for i, p in enumerate(predictions, 1):
             s = p["sentiment"]
+            mentions = p.get("mentions", 0)
+            reason = (p.get("reason") or "")[:120]
             html += f"""<div class="stock-row">
 <div class="stock-rank">#{i}</div>
 <div class="stock-info">
 <div class="stock-ticker">${p['ticker']}</div>
-<div class="stock-reason">{p.get('reason', '')[:120]}</div>
-<div class="stock-meta">{p['mentions']} mentions</div>
+<div class="stock-reason">{reason}</div>
+<div class="stock-meta">{mentions} mentions"""
+            top_posts_str = p.get("top_posts", "")
+            if top_posts_str and top_posts_str != "[]":
+                try:
+                    top_posts = json.loads(top_posts_str)
+                    for tp in top_posts[:2]:
+                        title = tp.get("title", "")[:60]
+                        url = tp.get("url", "")
+                        if url:
+                            html += f'<br>📎 <a href="{url}" target="_blank" style="color:#484f58;font-size:0.72rem;">{title}</a>'
+                except Exception:
+                    pass
+            html += """</div>
 </div>
 <span class="badge {badge_class(s)}">{s}</span>
 <span class="confidence">{p['confidence']:.0f}%</span>

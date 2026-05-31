@@ -80,6 +80,10 @@ def analyze_top_tickers(ranked_tickers, top_n=None):
         sentiment["engagement_score"] = t["engagement_score"]
         sentiment["company_name"] = t.get("company_name", "")
         sentiment["posts"] = t.get("posts", [])
+        top_posts = []
+        for p in t.get("posts", [])[:3]:
+            top_posts.append({"title": p["title"][:100], "url": p.get("url", ""), "subreddit": p.get("subreddit", "")})
+        sentiment["top_posts"] = top_posts
         results.append(sentiment)
     results.sort(key=lambda x: x.get("mentions", 0), reverse=True)
     return results

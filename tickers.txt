@@ -514,6 +514,9 @@ FAST|Fastenal Company
 URI|United Rentals
 PWR|Quanta Services
 
+S|BLOCK
+A|BLOCK
+
 # False Positives (COMMON WORDS - DO NOT MATCH AS TICKERS)
 # These are common English words / Reddit slang that overlap with ticker symbols
 YOLO|BLOCK
