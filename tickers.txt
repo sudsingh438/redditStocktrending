@@ -1,0 +1,609 @@
+# Stock Ticker Database
+# Format: TICKER|Company Name
+# Lines starting with # are comments
+# False positives blocklist at bottom
+
+# S&P 500 Major Tickers
+AAPL|Apple Inc.
+MSFT|Microsoft Corporation
+GOOGL|Alphabet Inc.
+AMZN|Amazon.com Inc.
+NVDA|NVIDIA Corporation
+TSLA|Tesla Inc.
+META|Meta Platforms Inc.
+BRK.B|Berkshire Hathaway
+BRK|Berkshire Hathaway
+JPM|JPMorgan Chase
+V|Visa Inc.
+JNJ|Johnson & Johnson
+WMT|Walmart Inc.
+MA|Mastercard Inc.
+PG|Procter & Gamble
+UNH|UnitedHealth Group
+HD|Home Depot
+BAC|Bank of America
+XOM|Exxon Mobil
+DIS|Walt Disney
+ADBE|Adobe Inc.
+CRM|Salesforce Inc.
+NFLX|Netflix Inc.
+CSCO|Cisco Systems
+PEP|PepsiCo Inc.
+ABT|Abbott Laboratories
+KO|Coca-Cola
+TMO|Thermo Fisher
+COST|Costco
+AVGO|Broadcom Inc.
+CVX|Chevron
+INTC|Intel Corporation
+PFE|Pfizer Inc.
+TXN|Texas Instruments
+QCOM|Qualcomm Inc.
+AMD|Advanced Micro Devices
+INTU|Intuit Inc.
+AMGN|Amgen Inc.
+IBM|International Business Machines
+HON|Honeywell International
+AMAT|Applied Materials
+NOW|ServiceNow Inc.
+BKNG|Booking Holdings
+AXP|American Express
+LOW|Lowe's Companies
+CAT|Caterpillar Inc.
+SPGI|S&P Global
+NEE|NextEra Energy
+RTX|RTX Corporation
+BLK|BlackRock
+MS|Morgan Stanley
+GS|Goldman Sachs
+UBER|Uber Technologies
+ABNB|Airbnb Inc.
+PYPL|PayPal Holdings
+PLTR|Palantir Technologies
+SNOW|Snowflake Inc.
+SQ|Block Inc. (Square)
+RBLX|Roblox Corporation
+COIN|Coinbase Global
+DKNG|DraftKings Inc.
+SNAP|Snap Inc.
+SHOP|Shopify Inc.
+ZM|Zoom Video Communications
+DDOG|Datadog Inc.
+CRWD|CrowdStrike Holdings
+NET|Cloudflare Inc.
+U|Unity Software
+RIVN|Rivian Automotive
+LCID|Lucid Group
+AFRM|Affirm Holdings
+HOOD|Robinhood Markets
+SOFI|SoFi Technologies
+ORCL|Oracle Corporation
+C|Citigroup Inc.
+WFC|Wells Fargo
+TMUS|T-Mobile US
+VZ|Verizon
+T|AT&T
+CMCSA|Comcast Corporation
+ADP|Automatic Data Processing
+LMT|Lockheed Martin
+GE|General Electric
+MMM|3M Company
+UPS|United Parcel Service
+FDX|FedEx Corporation
+DE|Deere & Company
+NKE|Nike Inc.
+SBUX|Starbucks Corporation
+MCD|McDonald's Corporation
+YUM|Yum! Brands
+CMG|Chipotle Mexican Grill
+DPZ|Domino's Pizza
+MNST|Monster Beverage
+PEP|PepsiCo
+MDLZ|Mondelez International
+KHC|Kraft Heinz
+GIS|General Mills
+TGT|Target Corporation
+COST|Costco Wholesale
+DG|Dollar General
+DLTR|Dollar Tree
+ROST|Ross Stores
+TJX|TJX Companies
+LULU|Lululemon Athletica
+AEO|American Eagle Outfitters
+GPS|Gap Inc.
+ANF|Abercrombie & Fitch
+BBWI|Bath & Body Works
+M|Macy's Inc.
+JWN|Nordstrom Inc.
+KSS|Kohl's Corporation
+WBA|Walgreens Boots Alliance
+CVS|CVS Health
+MCK|McKesson Corporation
+CI|Cigna Group
+HUM|Humana Inc.
+ELV|Elevance Health
+BMY|Bristol-Myers Squibb
+MRK|Merck & Co.
+LLY|Eli Lilly
+ABBV|AbbVie Inc.
+GILD|Gilead Sciences
+REGN|Regeneron Pharmaceuticals
+VRTX|Vertex Pharmaceuticals
+ISRG|Intuitive Surgical
+SYK|Stryker Corporation
+BSX|Boston Scientific
+EW|Edwards Lifesciences
+ZTS|Zoetis Inc.
+BA|Boeing Company
+NOC|Northrop Grumman
+GD|General Dynamics
+LHX|L3Harris Technologies
+HII|Huntington Ingalls
+RTX|Raytheon Technologies
+GD|General Dynamics
+TXT|Textron Inc.
+HEI|HEICO Corporation
+CW|Curtiss-Wright
+TDG|TransDigm Group
+MO|Altria Group
+PM|Philip Morris
+BTI|British American Tobacco
+DUK|Duke Energy
+SO|Southern Company
+NEE|NextEra Energy
+D|Dominion Energy
+AEP|American Electric Power
+EXC|Exelon Corporation
+XEL|Xcel Energy
+SRE|Sempra Energy
+ED|Consolidated Edison
+PEG|Public Service Enterprise
+EIX|Edison International
+PCG|PG&E Corporation
+COP|ConocoPhillips
+EOG|EOG Resources
+PXD|Pioneer Natural Resources
+MPC|Marathon Petroleum
+VLO|Valero Energy
+PSX|Phillips 66
+OXY|Occidental Petroleum
+DVN|Devon Energy
+HAL|Halliburton Company
+SLB|Schlumberger Limited
+BKR|Baker Hughes
+F|Ford Motor Company
+GM|General Motors
+TSLA|Tesla
+RIVN|Rivian
+LCID|Lucid
+NIO|Nio Inc.
+LI|Li Auto
+XPEV|Xpeng Inc.
+TM|Toyota Motor
+HMC|Honda Motor
+STLA|Stellantis
+RACE|Ferrari NV
+DAL|Delta Air Lines
+UAL|United Airlines
+AAL|American Airlines
+LUV|Southwest Airlines
+JBLU|JetBlue Airways
+ALK|Alaska Air Group
+MAR|Marriott International
+HLT|Hilton Worldwide
+BKNG|Booking Holdings
+EXPE|Expedia Group
+AAL|American Airlines Group
+CCL|Carnival Corporation
+RCL|Royal Caribbean
+NCLH|Norwegian Cruise Line
+WYNN|Wynn Resorts
+LVS|Las Vegas Sands
+MGM|MGM Resorts
+DHI|D.R. Horton
+LEN|Lennar Corporation
+PHM|PulteGroup
+NVR|NVR Inc.
+TOL|Toll Brothers
+ITB|iShares US Home Construction ETF
+XHB|SPDR Homebuilders ETF
+XLF|Financial Select Sector SPDR
+XLK|Technology Select Sector SPDR
+XLE|Energy Select Sector SPDR
+XLV|Health Care Select Sector SPDR
+XLI|Industrial Select Sector SPDR
+XLY|Consumer Discretionary SPDR
+XLP|Consumer Staples SPDR
+XLB|Materials Select Sector SPDR
+XLU|Utilities Select Sector SPDR
+XLRE|Real Estate Select Sector SPDR
+SPY|SPDR S&P 500 ETF
+QQQ|Invesco QQQ Trust
+IWM|iShares Russell 2000 ETF
+DIA|SPDR Dow Jones ETF
+VOO|Vanguard S&P 500 ETF
+VTI|Vanguard Total Stock Market ETF
+ARKK|ARK Innovation ETF
+ARKG|ARK Genomic Revolution ETF
+ARKF|ARK Fintech Innovation ETF
+ARKW|ARK Next Generation Internet ETF
+ARKQ|ARK Autonomous Tech ETF
+BITO|ProShares Bitcoin Strategy ETF
+GBTC|Grayscale Bitcoin Trust
+ETHE|Grayscale Ethereum Trust
+BITX|2x Bitcoin Strategy ETF
+CONL|GraniteShares 2x Long COIN ETF
+MSTR|MicroStrategy Inc.
+MARA|Marathon Digital Holdings
+RIOT|Riot Platforms
+CLSK|CleanSpark Inc.
+HUT|Hut 8 Mining
+
+# Popular Meme / Retail Stocks
+GME|GameStop Corporation
+AMC|AMC Entertainment
+BB|BlackBerry Limited
+BBBY|Bed Bath & Beyond (defunct)
+NOK|Nokia Corporation
+KOSS|Koss Corporation
+EXPR|Express Inc.
+CLOV|Clover Health
+WISH|ContextLogic Inc.
+CGC|Canopy Growth
+TLRY|Tilray Brands
+SNDL|Sundial Growers
+ACB|Aurora Cannabis
+APHA|Aphria (merged with TLRY)
+CRON|Cronos Group
+HMBL|Humbl Inc.
+CEI|Camber Energy
+NAKD|Naked Brand Group
+ATER|Aterian Inc.
+BBIG|Vinco Ventures
+MULN|Mullen Automotive
+HYMC|Hycroft Mining
+PRTY|Party City
+REV|Revlon Inc.
+RDBX|Redbox Entertainment
+APRN|Blue Apron
+EVER|EverQuote
+HKD|AMTD Digital
+IMPP|Imperial Petroleum
+MMAT|Meta Materials
+OGEN|Oragenics
+OTRK|Ontrak Inc.
+PIXY|ShiftPixy
+SBFM|Sunshine Biopharma
+VTNR|Vertex Energy
+WE|WeWork Inc.
+
+# TSX / Canadian Stocks
+SHOP|Shopify Inc.
+RY|Royal Bank of Canada
+TD|Toronto-Dominion Bank
+BNS|Bank of Nova Scotia
+BMO|Bank of Montreal
+CM|Canadian Imperial Bank
+ENB|Enbridge Inc.
+TRP|TC Energy
+CNQ|Canadian Natural Resources
+SU|Suncor Energy
+CVE|Cenovus Energy
+MFC|Manulife Financial
+SLF|Sun Life Financial
+CNI|Canadian National Railway
+CP|Canadian Pacific
+L|Loblaw Companies
+MRU|Metro Inc.
+T|Telus Corporation (also T|AT&T)
+BCE|BCE Inc.
+NTR|Nutrien Ltd.
+ABX|Barrick Gold
+WPM|Wheaton Precious Metals
+FNV|Franco-Nevada
+GOLD|Barrick Gold
+K|Kinross Gold
+AGI|Alamos Gold
+BTG|B2Gold
+
+# Indian Stocks (NSE/BSE)
+RELIANCE|Reliance Industries
+TCS|Tata Consultancy Services
+INFY|Infosys Limited
+HDFCBANK|HDFC Bank
+HDFC|Housing Development Finance (merged)
+ICICIBANK|ICICI Bank
+SBIN|State Bank of India
+BHARTIARTL|Bharti Airtel
+KOTAKBANK|Kotak Mahindra Bank
+ITC|ITC Limited
+LT|Larsen & Toubro
+HCLTECH|HCL Technologies
+WIPRO|Wipro Limited
+TECHM|Tech Mahindra
+SUNPHARMA|Sun Pharmaceutical
+DRREDDY|Dr. Reddy's Laboratories
+CIPLA|Cipla Limited
+DIVISLAB|Divi's Lab
+APOLLOHOSP|Apollo Hospitals
+MARUTI|Maruti Suzuki
+TATAMOTORS|Tata Motors
+MM|Mahindra & Mahindra
+BAJFINANCE|Bajaj Finance
+BAJAJFINSV|Bajaj Finserv
+AXISBANK|Axis Bank
+NESTLEIND|Nestle India
+HINDUNILVR|Hindustan Unilever
+BRITANNIA|Britannia Industries
+TITAN|Titan Company
+ASIANPAINT|Asian Paints
+ONGC|Oil and Natural Gas Corp
+NTPC|NTPC Limited
+POWERGRID|Power Grid Corporation
+COALINDIA|Coal India
+ULTRACEMCO|UltraTech Cement
+GRASIM|Grasim Industries
+JSWSTEEL|JSW Steel
+TATASTEEL|Tata Steel
+HINDALCO|Hindalco Industries
+VEDL|Vedanta Limited
+ADANIENT|Adani Enterprises
+ADANIPORTS|Adani Ports & SEZ
+ADANIGREEN|Adani Green Energy
+ADANITRANS|Adani Transmission
+ADANIPOWER|Adani Power
+IRCTC|IRCTC
+PAYTM|One97 Communications
+ZOMATO|Zomato Limited
+NYKA|Nykaa (FSN E-Commerce)
+POLICYBZR|PB Fintech
+
+# Semiconductor/Chip Stocks
+NVDA|NVIDIA
+AMD|Advanced Micro Devices
+INTC|Intel
+QCOM|Qualcomm
+TXN|Texas Instruments
+AVGO|Broadcom
+ADI|Analog Devices
+MCHP|Microchip Technology
+STM|STMicroelectronics
+NXPI|NXP Semiconductors
+MRVL|Marvell Technology
+ON|ON Semiconductor
+MPWR|Monolithic Power Systems
+ENTG|Entegris Inc.
+TER|Teradyne Inc.
+KLAC|KLA Corporation
+LRCX|Lam Research
+AMAT|Applied Materials
+ASML|ASML Holding
+MU|Micron Technology
+WDC|Western Digital
+STX|Seagate Technology
+TSM|Taiwan Semiconductor
+UMC|United Microelectronics
+
+# AI / Tech Stocks
+MSFT|Microsoft
+GOOGL|Alphabet/Google
+META|Meta/Facebook
+AMZN|Amazon
+AAPL|Apple
+CRM|Salesforce
+ADBE|Adobe
+NOW|ServiceNow
+PLTR|Palantir
+SNOW|Snowflake
+DDOG|Datadog
+CRWD|CrowdStrike
+NET|Cloudflare
+ZS|Zscaler
+OKTA|Okta
+PANW|Palo Alto Networks
+FTNT|Fortinet
+S|SentinelOne
+PATH|UiPath
+AI|C3.ai
+BBAI|BigBear.ai
+SOUN|SoundHound AI
+C3|C3.ai
+
+# Crypto-related
+COIN|Coinbase
+MSTR|Strategy (MicroStrategy)
+MARA|MARA Holdings
+RIOT|Riot Platforms
+CLSK|CleanSpark
+HUT|Hut 8
+BTBT|Bit Digital
+WULF|TeraWulf
+CIFR|Cipher Mining
+IREN|Iris Energy
+CORZ|Core Scientific
+HIVE|HIVE Digital
+BITF|Bitfarms
+BTDR|Bitdeer
+
+# Finance / Banking
+JPM|JPMorgan Chase
+BAC|Bank of America
+WFC|Wells Fargo
+C|Citigroup
+GS|Goldman Sachs
+MS|Morgan Stanley
+SCHW|Charles Schwab
+BLK|BlackRock
+BK|BNY Mellon
+STT|State Street
+TROW|T. Rowe Price
+AMP|Ameriprise Financial
+USB|US Bancorp
+PNC|PNC Financial
+AXP|American Express
+V|Visa
+MA|Mastercard
+PYPL|PayPal
+SQ|Block (Square)
+SOFI|SoFi
+AFRM|Affirm
+UPST|Upstart
+LC|LendingClub
+HOOD|Robinhood
+FUTU|Futu Holdings
+TIGR|UP Fintech
+
+# Healthcare/Biotech
+JNJ|Johnson & Johnson
+PFE|Pfizer
+MRK|Merck
+ABBV|AbbVie
+LLY|Eli Lilly
+BMY|Bristol-Myers
+AMGN|Amgen
+GILD|Gilead Sciences
+BIIB|Biogen
+REGN|Regeneron
+VRTX|Vertex Pharmaceuticals
+MRNA|Moderna
+BNTX|BioNTech
+NVAX|Novavax
+
+# Energy
+XOM|Exxon Mobil
+CVX|Chevron
+COP|ConocoPhillips
+EOG|EOG Resources
+PXD|Pioneer Natural Resources
+MPC|Marathon Petroleum
+VLO|Valero Energy
+PSX|Phillips 66
+OXY|Occidental Petroleum
+DVN|Devon Energy
+HAL|Halliburton
+SLB|Schlumberger
+BKR|Baker Hughes
+FSLR|First Solar
+ENPH|Enphase Energy
+SEDG|SolarEdge Technologies
+NEE|NextEra Energy
+PLUG|Plug Power
+FCEL|FuelCell Energy
+BE|Bloom Energy
+RUN|Sunrun
+
+# Large Caps (misc)
+WM|Waste Management
+RSG|Republic Services
+ECL|Ecolab
+SHW|Sherwin-Williams
+ROP|Roper Technologies
+PH|Parker Hannifin
+ITW|Illinois Tool Works
+EMR|Emerson Electric
+ETN|Eaton Corporation
+CMI|Cummins Inc.
+PCAR|PACCAR Inc.
+TT|Trane Technologies
+IR|Ingersoll Rand
+ROK|Rockwell Automation
+DOV|Dover Corporation
+AME|Ametek Inc.
+GWW|W.W. Grainger
+FAST|Fastenal Company
+URI|United Rentals
+PWR|Quanta Services
+
+# False Positives (COMMON WORDS - DO NOT MATCH AS TICKERS)
+# These are common English words / Reddit slang that overlap with ticker symbols
+YOLO|BLOCK
+DD|BLOCK
+LOL|BLOCK
+IMO|BLOCK
+IMHO|BLOCK
+LMAO|BLOCK
+CEO|BLOCK
+CFO|BLOCK
+ITM|BLOCK
+OTM|BLOCK
+EPS|BLOCK
+PE|BLOCK
+IPO|BLOCK
+ETF|BLOCK
+IRA|BLOCK
+ROI|BLOCK
+YTD|BLOCK
+GDP|BLOCK
+CPI|BLOCK
+FED|BLOCK
+SEC|BLOCK
+IRS|BLOCK
+USA|BLOCK
+USD|BLOCK
+EUR|BLOCK
+GBP|BLOCK
+JPY|BLOCK
+CNY|BLOCK
+CAD|BLOCK
+AUD|BLOCK
+NZD|BLOCK
+CHF|BLOCK
+HKD|BLOCK
+KRW|BLOCK
+INR|BLOCK
+AM|BLOCK
+PM|BLOCK
+CEO|BLOCK
+COO|BLOCK
+CTO|BLOCK
+VP|BLOCK
+HR|BLOCK
+IT|BLOCK
+PR|BLOCK
+RD|BLOCK
+QA|BLOCK
+UI|BLOCK
+UX|BLOCK
+API|BLOCK
+SDK|BLOCK
+AI|BLOCK
+ML|BLOCK
+AR|BLOCK
+VR|BLOCK
+MR|BLOCK
+OK|BLOCK
+GO|BLOCK
+NO|BLOCK
+SO|BLOCK
+TO|BLOCK
+IS|BLOCK
+BE|BLOCK
+ON|BLOCK
+IN|BLOCK
+AT|BLOCK
+AN|BLOCK
+OR|BLOCK
+MY|BLOCK
+WE|BLOCK
+UP|BLOCK
+HI|BLOCK
+HE|BLOCK
+IF|BLOCK
+DO|BLOCK
+ME|BLOCK
+ELSE|BLOCK
+NEW|BLOCK
+OLD|BLOCK
+NOW|BLOCK
+ALL|BLOCK
+ANY|BLOCK
+ONE|BLOCK
+TWO|BLOCK
+BIG|BLOCK
+TOP|BLOCK
+LOW|BLOCK
+HOT|BLOCK
+BUY|BLOCK
+HODL|BLOCK
+FOMO|BLOCK
+BAG|BLOCK
