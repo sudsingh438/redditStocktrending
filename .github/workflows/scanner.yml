@@ -1,12 +1,12 @@
 name: Reddit Stock Scanner
 
 on:
-  push:
-    branches:
-      - main
   schedule:
     - cron: '0 14 * * *'
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   scan:
@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Python
         uses: actions/setup-python@v5
