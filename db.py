@@ -57,6 +57,13 @@ def init_db():
     conn.execute("CREATE INDEX IF NOT EXISTS idx_predictions_ticker ON predictions(ticker)")
     conn.execute("CREATE INDEX IF NOT EXISTS idx_predictions_created ON predictions(created_at)")
     conn.execute("CREATE INDEX IF NOT EXISTS idx_backtests_prediction ON backtests(prediction_id)")
+
+    # Migration: add top_posts column if db was created before this field existed
+    columns = [c[1] for c in conn.execute("PRAGMA table_info(predictions)").fetchall()]
+    if "top_posts" not in columns:
+        conn.execute("ALTER TABLE predictions ADD COLUMN top_posts TEXT")
+        conn.commit()
+
     conn.commit()
     conn.close()
 
